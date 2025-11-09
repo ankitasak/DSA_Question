@@ -1,0 +1,149 @@
+Problem 1 : Write a program to calculate the sum of the first 10 natural numbers. 
+#include <bits/stdc++.h>
+using namespace std;
+//1. loop
+//2. return
+int CalculateSum(int number)
+{
+    int sum = 0;
+    for(int i= 1;i<=number;i++)
+    {
+        sum+=i;
+    }
+    return sum;
+}
+
+int main()
+{
+    int number =10;
+    cout<<"sum of the first 10 natural numbers : "<<CalculateSum(number);
+
+    return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------------
+Problem 2 : Write a program that prompts the user to input an integer and then outputs the number with the digits reversed. For example, if the input is 12345, the output should be 54321.
+solution :
+#include <bits/stdc++.h>
+using namespace std;
+int reverseNumberBasic(int number)
+{
+    int result=0;
+    while(number!=0)
+    {
+        int digit=number%10; 
+        result=result*10+digit; 
+        number=number/10;
+    }
+    return result;
+}
+
+int main()
+{
+    int number;
+    cout<<"Enter the number"<<endl;
+    cin>>number;
+    cout<<reverseNumberBasic(number);
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------
+Problem 3: Write a program that prompts the user to input a positive integer. It should then print the multiplication table of that number.
+Solution:
+#include <bits/stdc++.h>
+using namespace std;
+
+void multiplication_number(int number)
+{
+    int result=0;
+    int cnt=1;
+    while(cnt<=10)
+    {
+       cout<<number<<" * "<<cnt<<" = "<<number*cnt<<endl;
+       cnt++; 
+    }
+   
+}
+
+int main()
+{
+    int number;
+    cout<<"Enter the number"<<endl;
+    cin>>number;
+    multiplication_number(number);
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------
+Problem 4 : Write a program to display first n odd numbers.
+Solution:
+#include <bits/stdc++.h>
+using namespace std;
+//Write a program to display first n odd numbers.. 
+// 2n-1
+//1.Basic calculation
+int SumofOddNo(int number)
+{
+    return 2*number-1;
+}
+void printoddno(int number)
+{
+  for(int i=1;i<=number;i=i+2)
+  {
+      cout<<i<<" ";
+  }
+}
+
+int main()
+{
+    int number;
+    cout<<"Enter the number"<<endl;
+    cin>>number;
+    int totalSumofodd=SumofOddNo(number);
+    printoddno(totalSumofodd);
+    
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------
+Problem 5 : Write a  program to calculate the factorial of a given number. Like for 5 answer should be 120
+
+#include <bits/stdc++.h>
+using namespace std;
+// 5!=5*4*3*2*1
+//1.Basic calculation
+int FactiorialNumber(int number)
+{
+    int cnt=1;
+    int result=1;
+    while(cnt<=number)
+    {
+        result=result*cnt;
+        cnt++;
+    }
+    return result;
+}
+
+
+int main()
+{
+    int number;
+    cout<<"Enter the number"<<endl;
+    cin>>number;
+    cout<<"Factorial of "<<number<<" "<<Factorial;
+    
+    return 0;
+}
+
+
+//Using recursion;
+int FactiorialNumber(int number)
+{
+    if(number==0)
+    {
+        return 1;                                           //5*4*3*2*1*1
+    }
+    else
+    {
+        return number*FactiorialNumber(number-1); //4*3*2*1
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------
