@@ -16,5 +16,91 @@ int main()
     return 0;
 }
 -------------------------------------------------------------------------
+************
+*****  *****
+****    ****
+***      ***
+**        **
+*          *
+*          *
+**        **
+***      ***
+****    ****
+*****  *****
+************
 
+#include <bits/stdc++.h>
+using namespace std;
+void dimoundpattern(int n)
+{
+    for(int row=0;row<2*n;row++)
+    {
+        //stars
+        int star=row<n? (n-row):(row-n+1);
+        int space=(2*n-2)-2*(star-1);
+        //cout<<star<<" "<<space;
+        for(int col=0;col<star;col++)
+        {
+            cout<<"*";
+        }
+        for(int spc=0;spc<space;spc++)
+        {
+            cout<<" ";
+        }
+        for(int col=0;col<star;col++)
+        {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    int n=6;
+    dimoundpattern(n);
+    return 0;
+}
+------------------------------------------------------------------------------------------
+*          *
+**        **
+***      ***
+****    ****
+*****  *****
+************
+*****  *****
+****    ****
+***      ***
+**        **
+*          *
 
+#include <bits/stdc++.h>
+using namespace std;
+void dimoundpattern(int n)
+{
+    for(int row=0;row<2*n;row++)
+    {
+        //stars
+        int star=row<n? row+1:(2*n-row);
+        int space=(2*n-2)-2*(star-1);
+        //cout<<star<<" "<<space;
+        for(int col=0;col<star;col++)
+        {
+            cout<<"*";
+        }
+        for(int spc=0;spc<space;spc++)
+        {
+            cout<<" ";
+        }
+        for(int col=0;col<star;col++)
+        {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    int n=5;
+    dimoundpattern(n);
+    return 0;
+}
