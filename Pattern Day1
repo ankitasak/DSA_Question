@@ -15,6 +15,59 @@ int main()
 
     return 0;
 }
+OR
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void dimoundpattern(int n)
+{
+    int space=0;
+    for(int row=0;row<n;row++)
+    {
+        
+        for(int col=0;col<=n-row-1;col++)
+        {
+            cout<<"*";
+        }
+        for(int spc=0;spc<space;spc++)
+        {
+            cout<<" ";
+        }
+        for(int col=0;col<=n-row-1;col++)
+        {
+            cout<<"*";
+        }
+        cout<<endl;
+        space+=2;
+    }
+    //lower
+    space=(2*n)-2;
+     for(int row=0;row<n;row++)
+    {
+        
+        for(int col=0;col<=row;col++)
+        {
+            cout<<"*";
+        }
+        for(int spc=0;spc<space;spc++)
+        {
+            cout<<" ";
+        }
+        for(int col=0;col<=row;col++)
+        {
+            cout<<"*";
+        }
+        cout<<endl;
+        space-=2;
+    }
+}
+int main()
+{
+    int n=5;
+    dimoundpattern(n);
+    return 0;
+}
 -------------------------------------------------------------------------
 ************
 *****  *****
