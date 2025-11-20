@@ -67,3 +67,87 @@ public:
 };
     
 };
+------------------------------------------------------------
+Q2 .#include <bits/stdc++.h>
+using namespace std;
+int romanval(char);
+int romanToInt(string s) {
+        int result=0;
+        for(int i=0;i<s.size();i++)
+        {
+          int  current=romanval(s[i]);
+          if(i+1<s.size())
+            {
+            
+                if(current<romanval(s[i+1]))
+                {
+                    result-=current;
+                }
+                else
+                {
+                    result+=current;
+                }
+            }
+            else
+            {
+                result+=current;
+            }
+        }
+        return result;
+    }
+    int romanval(char s)
+    {
+        int val;
+        switch(s)
+        {
+            case 'I': val= 1;break;
+            case 'V':val= 5;break;
+            case 'X':val= 10;break;
+            case 'L': val= 50;break;
+            case 'C':val= 100;break;
+            case 'D': val= 500;break;
+            case 'M':val= 1000;break;
+        }
+        return val;
+        
+    }
+
+int main()
+{
+	string s;
+	cin>>s;
+	cout<<romanToInt(s);
+
+	return 0;
+}
+-----------------------------------------------------------------------------------------------------
+Q1 .
+
+
+#include <bits/stdc++.h>
+using namespace std;
+ string intToRoman(int num) {
+        string romanval[13]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        int romannum[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        string result="";
+        int cnt=0;
+        while(13>cnt)
+        {
+            while(num>romannum[cnt])
+            {
+                num=num-romannum[cnt];
+                result+=romanval[cnt];
+            }
+            cnt++;
+        }
+        return result;
+    }
+
+int main()
+{
+	int num;
+	cin>>num;
+	cout<<intToRoman(num);
+
+	return 0;
+}
