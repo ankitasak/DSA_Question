@@ -1,0 +1,31 @@
+1.283: Move Zero's
+#include <bits/stdc++.h>
+using namespace std;
+void moveZeros(vector<int> &nums)
+{
+    int current=0;
+    int next=0;
+    while(next!=nums.size())
+    {
+       if(nums[next]!=0)
+       {
+           //Swap 
+           int temp = nums[current];
+           nums[current]=nums[next];
+           nums[next]=temp;
+           current++;
+       }
+       next++; 
+    }
+    for(int val:nums)
+    {
+        cout<<val<<" ";
+    }
+}
+
+int main()
+{
+  vector<int> nums={0,1,5,3,6,4};
+   moveZeros(nums);
+    return 0;
+}
