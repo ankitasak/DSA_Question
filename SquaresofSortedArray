@@ -1,0 +1,39 @@
+
+Problem:https://leetcode.com/problems/squares-of-a-sorted-array/description/
+Solution:
+#include <bits/stdc++.h>
+using namespace std;
+void sqareofSorted(vector<int> &nums)
+{
+   
+    int start = 0;
+    int end = nums.size()-1;
+    int k=nums.size()-1;
+     vector<int> result(nums.size());
+    while(start<=end)
+    {
+        if(pow(nums[end],2)>=pow(nums[start],2))
+        {
+            result[k]=pow(nums[end],2);
+            end--;
+        }
+        else
+        {
+            result[k]=pow(nums[start],2);
+            start++;
+        }
+        k--;
+    }
+    
+    for(int val:result)
+    {
+        cout<<val<<" ";
+    }
+}
+
+int main()
+{
+  vector<int> nums={-4,-1,0,3,10};
+   sqareofSorted(nums);
+    return 0;
+}
