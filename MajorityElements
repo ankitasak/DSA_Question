@@ -20,4 +20,53 @@ public:
        }
        return -1;
     }
+------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    int majorityElement(vector<int>& prices) {
+        sort(prices.begin(),prices.end());
+        int ans=prices[0];
+        int frq=0;
+        for(int i =1; i<prices.size();i++)
+        {
+            if(prices[i]!=prices[i-1])
+            {
+                frq=1;
+                ans=prices[i];
+            }
+            else
+            {
+                frq++;
+            }
+            if(frq >(prices.size())/2)
+            {
+                ans=prices[i];
+            }
+        }
+        return ans;
+    }
+};
+--------------------------------------------------------------------------------------------------------------------------------------------------
+<h4>Best Approach:</h4>
+class Solution {
+public:
+    int majorityElement(vector<int>& prices) {
+       //Using Moore's Algorithm
+       int freq =0,result=0;
+       for(int i =0 ;i<prices.size();i++)
+       {
+            if(freq == 0)
+            {
+                result =prices[i];
+            }
+            if(result == prices[i])
+            {
+               freq++; 
+            }
+            else{
+                freq--;
+            }
+       }
+       return result;
+    }
 };
