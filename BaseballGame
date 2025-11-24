@@ -1,0 +1,46 @@
+- Need extra vector 
+- we are using one counter to track the count size of vector 
+- Converison of String to int used stoi()
+- used push_back() , pop_back()
+#include <bits/stdc++.h>
+using namespace std;
+int calPoints(vector<string> &operations)
+{ 
+    vector<int> op;
+    int size_cal = 0;
+    int result=0;
+    for(auto ele : operations)
+    {
+        if(ele == "+")
+        {
+            op.push_back(op[size_cal-1]+op[size_cal-2]);
+            size_cal++;
+        }
+        else if(ele == "D")
+        {
+            op.push_back(op[size_cal-1]*2);
+            size_cal++;
+        }
+        else if(ele == "C"){
+            op.pop_back();
+            size_cal--;
+        }
+        else
+        {
+            op.push_back(stoi(ele));
+            size_cal++;
+        }
+    }
+    for (int val : op)
+    {
+        result+=val;
+    }
+    return result;
+}
+
+int main()
+{
+    vector<string> ops = {"5","2","C","D","+"};
+    cout<<calPoints(ops);
+    return 0;
+}
