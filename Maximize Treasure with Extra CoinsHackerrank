@@ -1,0 +1,52 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int maxaval(vector<int> pirate,int n)
+{
+    int maxx=0;
+    for(int i=0;i<n;i++)
+    {
+        maxx=max(maxx,pirate[i]);
+    }
+    return maxx;
+}
+
+void findunique(vector<int> &pirate ,int n,int ex)
+{
+
+    int maximumval=maxaval(pirate, n);
+    cout<<"maxaval"<<maximumval<<endl;
+    vector<bool> result;
+    
+  for(int i = 0; i < n; i++)
+    {
+        int sum = pirate[i] + ex;
+        result.push_back(sum < maximumval);
+    }
+    
+      for(auto ele : result)
+    {
+        cout<<ele<<" ";
+    }
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin>>n;
+    vector<int> artifacts(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>artifacts[i];
+    }
+
+    int x;
+    cin>>x;
+    // vector<bool> ans=findunique(artifacts,n,x);
+    findunique(artifacts,n,x);
+  
+    return 0;
+}
