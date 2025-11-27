@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> creatingvector(int num)
+{
+    vector<int> result;
+    int val=num;
+    while(val!=0)
+    {
+        result.push_back(val%10);
+        val/=10;
+    }
+    return result;
+}
+int Sumoffourdigit(int num)
+{
+    vector<int> result= creatingvector(num);
+    sort(result.begin(),result.end());
+    int sum=0;
+    sum+=result[0]*10+result[2]+result[1]*10+result[3];
+    
+    return sum;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<Sumoffourdigit(num);
+
+    return 0;
+}
