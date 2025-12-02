@@ -67,6 +67,8 @@ public:
                 freq--;
             }
        }
-       return result;
+      if(freq>(prices.size()/2)
+      {return result;}
+    return 0;
     }
 };
