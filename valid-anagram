@@ -1,0 +1,38 @@
+https://leetcode.com/problems/valid-anagram/description/
+#include <bits/stdc++.h>
+using namespace std;
+int anagram(string s,string s2)
+{
+    vector<int>  freq(26,0);
+    int cnt=0;
+    for(auto ele : s)
+    {
+        freq[ele-'a']++;
+       // cout<<ele-'a'<<endl;
+    }
+     for(auto ele : s2)
+    {
+        freq[ele-'a']--;
+       // cout<<ele-'a'<<endl;
+    }
+    for(auto ele : freq)
+    {
+        if(ele!=0)
+        {
+            return 0;
+        }
+        
+    }
+    return 1;
+ 
+}
+
+int main()
+{
+    string s,s2;
+    cin>>s>>s2;
+    cout<<anagram(s,s2);
+
+    return 0;
+}
+
