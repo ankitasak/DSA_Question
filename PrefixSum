@@ -1,0 +1,34 @@
+1 . https://leetcode.com/problems/running-sum-of-1d-array/description/
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        vector<int> prefix_sum(nums.size());
+        prefix_sum[0] = nums[0];
+        for ( int start = 1; start < nums.size(); start++)
+        {
+           prefix_sum[start] = prefix_sum[start-1] + nums[start];
+        }
+        return prefix_sum;
+    }
+};
+-----------------------------------------------------------
+2. https://leetcode.com/problems/range-sum-query-immutable/description/
+class NumArray {
+public:
+    vector<int> prefix_sum ;
+    NumArray(vector<int>& nums) {
+        int n =nums.size();
+        prefix_sum.resize(n);
+        prefix_sum[0] = nums[0];
+        for(int i = 1 ; i < nums.size(); i++)
+        {
+            prefix_sum[i] =  prefix_sum[i-1]+ nums[i];
+        }
+    }
+    
+    int sumRange(int left, int right) {
+        if(left == 0) return prefix_sum[right];
+       return prefix_sum[right] - prefix_sum[left-1] ;
+    }
+};
+-----------------------------------------------------------------
