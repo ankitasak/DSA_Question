@@ -1,0 +1,29 @@
+https://leetcode.com/problems/fruit-into-baskets/description/  (check SandeshNaik solution )
+
+class Solution {
+public:
+    int totalFruit(vector<int>& nums) {
+       int avgemax = INT_MIN;
+    unordered_map<int,int>freqcnt;
+    int j = 0;
+    int i = 0;
+    while(j<nums.size())
+    {
+        freqcnt[nums[j]]++;
+       
+        while(freqcnt.size()>2)
+        {
+            freqcnt[nums[i]]--;
+            if(freqcnt[nums[i]]==0)
+            {
+                freqcnt.erase(nums[i]);
+            }
+            i++;
+        }
+        avgemax=max(avgemax,j-i+1);
+        j++;
+        
+    }
+    return avgemax;
+    }
+};
