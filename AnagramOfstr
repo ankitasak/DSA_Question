@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+int anagrams(string s,string p)
+{
+    int lens =s.length();
+    int lenp = p.length();
+    if(lenp>lens) return 0;
+    map<char,int> mapp;
+    int i=0,j=0,ans=0;
+    int k =p.size();
+  //storing the occ. of string p in the map
+    for(auto &x : p)
+    {
+        mapp[x]++;
+       
+    }
+    int cnt =mapp.size();
+    while(j<s.size())
+    {
+        //calculation 
+        if(mapp.find(s[j])!= mapp.end())
+        {
+            mapp[s[j]]--;
+            if(mapp[s[j]]== 0)
+             { cnt--;}
+        }
+//window length not achived yet
+        if(j-i+1<k) j++;
+  //window length achived, find ans and slide the window
+        else if(j-i+1 == k)
+        {
+//find ans
+            if(cnt == 0) {ans++;}
+            if(mapp.find(s[i]) != mapp.end())
+            {
+                mapp[s[i]]++;
+                if(mapp[s[i]]==1)
+                 cnt++;
+            }
+            //slide the window
+            i++;j++;
+        }
+       
+    }
+    return ans;
+}
+
+int main()
+{
+    string s,p;
+    cin>>s>>p;
+    cout<<anagrams(s,p);
+
+    return 0;
+}
