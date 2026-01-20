@@ -57,3 +57,27 @@ int n=nums.size();
         return -1;
     }
 };
+
+https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/
+class Solution {
+public:
+    bool canThreePartsEqualSum(vector<int>& arr) {
+        int total=0,cnt=0,target=0;
+        total = accumulate(arr.begin(),arr.end(),0);
+        if(total %3 !=0 ) return false;
+         target = total /3;
+         int sum =0;
+         for(int i = 0; i<arr.size()-1;i++)
+         {
+            // running sum 
+            sum += arr[i];
+            if(target == sum)
+            {
+                sum =0;
+                cnt++;
+                if(cnt ==2) return true;
+            }
+         }
+         return false;
+    }
+};
