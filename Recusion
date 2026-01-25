@@ -1,0 +1,28 @@
+78. Subset
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+      vector<vector<int>> res;
+        vector<int>subset;
+        helper(nums,0,res,subset);
+        return res;
+    }
+void helper(vector<int>&nums,int index,vector<vector<int>>&res, vector<int>&subset)
+{
+    //base cond
+    if(index == nums.size())
+    {
+        res.push_back(subset);
+        return;
+    }
+    //updating vector
+    subset.push_back(nums[index]);
+    //incude
+    helper(nums,index+1,res,subset);
+    // 1. remove the ele 
+    subset.pop_back();
+    //exclude
+    helper(nums,index+1,res,subset);
+
+}
+};
