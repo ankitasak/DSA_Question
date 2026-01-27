@@ -1,0 +1,49 @@
+1. we can store vector datatype in set
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void helper(vector<int>&,int ,set<vector<int>>&, vector<int>&);
+vector<vector<int>> subset(vector<int>& nums) {
+        set<vector<int>>res;
+        vector<int>subset;
+        helper(nums,0,res,subset);
+        vector<vector<int>> result (res.begin(),res.end());
+        return result;
+}
+void helper(vector<int>&nums,int index,set<vector<int>>&res, vector<int>&subset)
+{
+    //base cond
+    if(index == nums.size())
+    {
+        res.insert(subset);
+        return;
+    }
+    //updating vector
+    subset.push_back(nums[index]);
+   
+    //incude
+    helper(nums,index+1,res,subset);
+    // 1. remove the ele 
+    subset.pop_back();
+    //exclude
+    helper(nums,index+1,res,subset);
+
+}
+int main()
+{
+  vector<int> nums={1,2,2};
+ vector<vector<int>> ans = subset(nums);
+ for(auto ele:ans)
+ {
+     cout<<"{";
+     for(int j:ele)
+     {
+         cout<<j<<" ";
+     }
+     cout<<"}";
+ }
+
+    return 0;
+}
