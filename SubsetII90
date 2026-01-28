@@ -1,13 +1,12 @@
 1. we can store vector datatype in set
 
-
-
 #include <bits/stdc++.h>
 using namespace std;
 void helper(vector<int>&,int ,set<vector<int>>&, vector<int>&);
 vector<vector<int>> subset(vector<int>& nums) {
         set<vector<int>>res;
         vector<int>subset;
+        sort(nums.begin(),nums.end());
         helper(nums,0,res,subset);
         vector<vector<int>> result (res.begin(),res.end());
         return result;
@@ -57,6 +56,7 @@ void helper(vector<int>&,int ,vector<vector<int>>&, vector<int>&);
 vector<vector<int>> subset(vector<int>& nums) {
         vector<vector<int>>res;
         vector<int>subset;
+        sort(nums.begin(),nums.end());
         helper(nums,0,res,subset);
        // vector<vector<int>> result (res.begin(),res.end());
         return res;
