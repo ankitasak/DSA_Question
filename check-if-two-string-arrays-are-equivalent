@@ -1,0 +1,32 @@
+https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+     int ptr=0,ptr2=0;
+        int indx=0,indx2=0;
+        while(ptr<word1.size() &&ptr2<word2.size())
+        {
+            char ch = word1[ptr][indx];
+            char ch2 = word2[ptr2][indx2];
+            if(ch!=ch2)
+            {
+                return false;
+            }
+            indx++;
+            indx2++;
+            if(indx==word1[ptr].size())
+            {
+                indx=0;
+                ptr++;
+            }
+            if(indx2==word2[ptr2].size())
+            {
+                indx2=0;
+                ptr2++;
+            }
+
+        }
+        return ptr==word1.size() && ptr2==word2.size();
+
+    }
+};
