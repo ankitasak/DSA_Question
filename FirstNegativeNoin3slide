@@ -1,0 +1,50 @@
+https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+
+#include<bits/stdc++.h>
+using namespace std;
+void firstnegativeno(vector<int> &nums,int k)
+{
+    vector<int> ans;
+    std::deque<int> res ;
+    int i =0;
+    int j =0;
+    while(j<nums.size())
+    {
+        if(nums[j]<0)
+        {
+            res.push_back(nums[j]);
+        }
+        if(j-i+1<k)
+        {
+            j++;
+        }
+        else if(j-i+1==k)
+        {
+            if(res.size()==0)
+            {
+                ans.push_back(0);
+            }
+            else{
+                ans.push_back(res.front());
+                if(nums[i]==res.front())
+                {
+                   res.pop_front();
+                }
+            }
+            i++;
+            j++;
+        }
+    }
+    for(auto ele:ans)
+    {
+        cout<<ele<<",";
+    }
+}
+
+int main()
+{
+    vector<int> nums={12, -1, -7, 8, -15, 30, 16, 28};
+    firstnegativeno(nums,3);
+
+    return 0;
+}
